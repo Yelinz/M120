@@ -1,13 +1,14 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace M120Projekt
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Todo_Singleview : Window
     {
-        public MainWindow()
+        public Todo_Singleview()
         {
             InitializeComponent();
             // Aufruf diverse APIDemo Methoden
@@ -17,6 +18,11 @@ namespace M120Projekt
             APIDemo.TodoUpdate();
             APIDemo.TodoRead();
             // APIDemo.TodoDelete();
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            alertLabel.Content = $"Es wurde eingegeben: {description.Text}, {deadline.Text}, {priority.SelectedValue}, {done.IsChecked}";
         }
     }
 }

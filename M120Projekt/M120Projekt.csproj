@@ -44,6 +44,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,7 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Todo_Singleview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,8 +75,8 @@
     </Compile>
     <Compile Include="Data\Todos.cs" />
     <Compile Include="Data\Context.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Todo_Singleview.xaml.cs">
+      <DependentUpon>Todo_Singleview.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -107,6 +109,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="res\icon_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\save_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controls\" />
+    <Folder Include="Windows\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
