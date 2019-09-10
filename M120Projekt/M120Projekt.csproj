@@ -125,5 +125,8 @@
     <Folder Include="controls\" />
     <Folder Include="Windows\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon_back.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

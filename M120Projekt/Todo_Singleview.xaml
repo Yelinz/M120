@@ -36,27 +36,27 @@
                     <TextBlock Margin="0,0,3,0">Speichern</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="buttonEdit" Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,10,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="1.384,0.554" FontSize="16" Click="ButtonSave_Click">
+            <Button x:Name="buttonEdit" Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,10,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="1.384,0.554" FontSize="16" Click="ButtonEdit_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="res/icon_edit.png" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0"/>
                     <TextBlock Margin="0,0,3,0">Bearbeiten</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="buttonDelete" Grid.Column="3" Margin="0,0,10,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="-0.035,0.514" FontSize="16" HorizontalAlignment="Center">
+            <Button x:Name="buttonDelete" Grid.Column="3" Margin="0,0,10,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="-0.035,0.514" FontSize="16" HorizontalAlignment="Center" Click="ButtonDelete_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="res/icon_delete.png" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0"/>
                     <TextBlock Margin="0,0,3,0">Löschen</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="buttonCancel" Grid.Column="3" Margin="0,0,0,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="-0.035,0.514" FontSize="16" HorizontalAlignment="Center">
+            <Button x:Name="buttonBack" Grid.Column="3" Margin="0,0,0,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="-0.035,0.514" FontSize="16" HorizontalAlignment="Center" Click="ButtonBack_Click">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="res/icon_cancel.png" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBlock Margin="0,0,3,0">Abbrechen</TextBlock>
+                    <Image Source="res/icon_back.png" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBlock Margin="0,0,3,0">Zurück</TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>
         <ComboBox x:Name="priority" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="250" SelectedIndex="0" FontSize="16">
-            <ComboBoxItem Content="Priorität auswählen" IsSelected="True" IsEnabled="False"/>
+            <ComboBoxItem x:Name="priorityPlaceholder" Content="Priorität auswählen" IsSelected="True" IsEnabled="False"/>
             <ComboBoxItem Content="Hoch"/>
             <ComboBoxItem Content="Mittel"/>
             <ComboBoxItem Content="Tief"/>
@@ -64,7 +64,7 @@
         <Label Content="Ablaufdatum" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="2" FontSize="16"/>
         <Label Content="Priotität" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="3" FontSize="16"/>
         <Label Content="Erledigt" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="5" FontSize="16"/>
-        <Label Content="Todo" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
-        <Label x:Name="alertLabel" HorizontalAlignment="Left" Margin="0" Grid.Row="6" VerticalAlignment="Center" Grid.Column="1"/>
+        <Label x:Name="labelTitle" Content="Todo" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+        <Label x:Name="alertLabel" HorizontalAlignment="Left" Margin="0" Grid.Row="6" VerticalAlignment="Center" Grid.Column="1" Background="White" Foreground="Red"/>
     </Grid>
 </Window>
