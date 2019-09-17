@@ -17,11 +17,12 @@ namespace M120Projekt
             Int64 todo1Id = todo1.Create();
             Debug.Print("Artikel erstellt mit Id:" + todo1Id);
         }
-        public static void TodoCreateShort()
+        public static Int64 TodoCreateShort()
         {
-            Data.Todos todo2 = new Data.Todos { Description = "Artikel 2", Done = true, ExpiryDate = DateTime.Today, Colour = 2, Priority = 3 };
+            Data.Todos todo2 = new Data.Todos { Description = "Artikel 2", Done = true, ExpiryDate = DateTime.Today, Colour = "Red", Priority = 1 };
             Int64 todo2Id = todo2.Create();
             Debug.Print("Artikel erstellt mit Id:" + todo2Id);
+            return todo2Id;
         }
 
         // Read

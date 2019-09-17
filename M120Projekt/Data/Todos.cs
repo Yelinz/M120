@@ -13,22 +13,42 @@ namespace M120Projekt.Data
         public Int64 TodoId { get; set; }
         [Required]
         public String Description { get; set; }
-        [Required]
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
         public Boolean Done { get; set; }
-        public Int64 Colour { get; set; }
-        public Int64 Priority { get; set; }
+        public String Colour { get; set; }
+        public Int32 Priority { get; set; }
         #endregion
         #region Applicationlayer
         public Todos() { }
+
         [NotMapped]
-        public String CalculatedAttribute
+        public String PriorityName
         {
             get
             {
-                return "Im Getter kann Code eingefügt werden für berechnete Attribute";
+                switch (Priority)
+                {
+                    case 1:
+                        return "Hoch";
+                    case 2:
+                        return "Mittel";
+                    case 3:
+                        return "Tief";
+                    default:
+                        return "";
+                }
             }
         }
+
+        [NotMapped]
+        public String FormattedExpiryDate
+        {
+            get
+            {
+                return ExpiryDate.HasValue ? ExpiryDate?.ToString("dd.MM.yyyy") : "";
+            }
+        }
+
         public static List<Todos> ReadAll()
         {
             using (var db = new Context())
