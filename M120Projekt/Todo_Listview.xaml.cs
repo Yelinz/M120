@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M120Projekt.controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,26 +18,33 @@ namespace M120Projekt
     /// <summary>
     /// Interaktionslogik für Todo_Listview.xaml
     /// </summary>
-    public partial class Todo_Listview : Window
+    public partial class Todo_Listview : UserControl
     {
-        public Todo_Listview()
+        Main_Window Container;
+        public Todo_Listview(Main_Window _Container)
         {
             InitializeComponent();
+            Container = _Container;
 
-            todoList.ItemsSource = Data.Todos.ReadAll();
+            ReloadTodoList();
         }
 
         private void TodoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (todoList.SelectedItem != null) 
             {
-                new Todo_Singleview(Todo_Singleview.Modes.Update, (Data.Todos)todoList.SelectedItem).Show();
+                Container.View.Content = new UserControl1(UserControl1.Modes.Update, (Data.Todos)todoList.SelectedItem, this, Container);
             }
         }
 
         private void ButtonCreate_Click(object sender, RoutedEventArgs e)
         {
-            new Todo_Singleview(Todo_Singleview.Modes.Create, new Data.Todos()).Show();
+            Container.View.Content = new UserControl1(UserControl1.Modes.Create, new Data.Todos(), this, Container);
+        }
+
+        public void ReloadTodoList()
+        {
+            todoList.ItemsSource = Data.Todos.ReadAll();
         }
     }
 }

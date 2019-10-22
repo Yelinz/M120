@@ -1,30 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace M120Projekt
+namespace M120Projekt.controls
 {
     /// <summary>
-    /// Interaktionslogik für Todo_Singleview.xaml
+    /// Interaktionslogik für UserControl1.xaml
     /// </summary>
-    public partial class Todo_Singleview : Window
+    public partial class UserControl1 : System.Windows.Controls.UserControl
     {
         public enum Modes { Create, Read, Update };
         private Modes mode = Modes.Create;
         private Data.Todos todo;
+        Todo_Listview ListView;
+        Main_Window Container;
 
-        public Todo_Singleview(Modes mode, Data.Todos todo)
+        public UserControl1(Modes mode, Data.Todos todo, Todo_Listview _Listview, Main_Window _Conainter)
         {
             InitializeComponent();
             this.todo = todo;
             ChangeMode(mode);
             FillFields(todo);
+            ListView = _Listview;
+            Container = _Conainter;
         }
 
         private void ChangeMode(Modes mode)
         {
-            if (mode == Modes.Read) 
+            if (mode == Modes.Read)
             {
                 buttonSave.Visibility = Visibility.Collapsed;
                 buttonEdit.Visibility = Visibility.Visible;
@@ -39,7 +55,8 @@ namespace M120Projekt
                 labelTitle.Content = "Todo";
                 priorityPlaceholder.Content = "";
                 description.BorderBrush = System.Windows.Media.Brushes.Black;
-            } else
+            }
+            else
             {
                 buttonSave.Visibility = Visibility.Visible;
                 buttonEdit.Visibility = Visibility.Collapsed;
@@ -56,7 +73,8 @@ namespace M120Projekt
                 if (mode == Modes.Create)
                 {
                     labelTitle.Content = "Todo Erstellen";
-                } else if (mode == Modes.Update)
+                }
+                else if (mode == Modes.Update)
                 {
                     labelTitle.Content = "Todo Berarbeiten";
                 }
@@ -134,13 +152,15 @@ namespace M120Projekt
                 if (mode == Modes.Create)
                 {
                     todo.Create();
-                } else if (mode == Modes.Update)
+                }
+                else if (mode == Modes.Update)
                 {
                     todo.Update();
                 }
 
                 ChangeMode(Modes.Read);
                 SetSuccessMessage("Todo wurde erfolgreich gespeichert");
+                ListView.ReloadTodoList();
             }
         }
 
@@ -158,6 +178,7 @@ namespace M120Projekt
             {
                 todo.Delete();
                 SetSuccessMessage("Todo wurde erfolgreich gelöscht");
+                ListView.ReloadTodoList();
             }
         }
 
@@ -173,14 +194,16 @@ namespace M120Projekt
                     if (mode == Modes.Update)
                     {
                         ChangeMode(Modes.Read);
-                    } else
+                    }
+                    else
                     {
-                        this.Close();
+                        Container.View.Content = ListView;
                     }
                 }
-            } else
+            }
+            else
             {
-                this.Close();
+                Container.View.Content = ListView;
             }
         }
     }
