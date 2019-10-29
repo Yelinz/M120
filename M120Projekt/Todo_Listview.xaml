@@ -6,19 +6,25 @@
         xmlns:local="clr-namespace:M120Projekt"
         xmlns:Data="clr-namespace:M120Projekt.Data" x:Class="M120Projekt.Todo_Listview"
         mc:Ignorable="d"
-       Height="450" Width="800">
+        d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="todoList" HorizontalAlignment="Left" Margin="10,10,0,-101" VerticalAlignment="Top" Grid.Row="2" AutoGenerateColumns="False" MouseDoubleClick="TodoList_MouseDoubleClick">
+        <DataGrid x:Name="todoList" HorizontalAlignment="Left" Margin="10,10,0,-101" VerticalAlignment="Top" Grid.Row="2" AutoGenerateColumns="False" MouseDoubleClick="TodoList_MouseDoubleClick" VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Description}" Header="Beschreibung"/>
-                <DataGridTextColumn IsReadOnly="True" Binding="{Binding FormattedExpiryDate, Mode=OneWay}" Header="Ablaufdatum"/>
-                <DataGridTextColumn IsReadOnly="True" Binding="{Binding PriorityName, Mode=OneWay}" Header="Priorität"/>
-                <DataGridCheckBoxColumn IsReadOnly="True" Binding="{Binding Done}" Header="Erledigt"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Description}" Header="Beschreibung" MinWidth="300" MaxWidth="400">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding FormattedExpiryDate, Mode=OneWay}" Header="Ablaufdatum" MinWidth="100"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding PriorityName, Mode=OneWay}" Header="Priorität" MinWidth="100"/>
+                <DataGridCheckBoxColumn IsReadOnly="True" Binding="{Binding Done}" Header="Erledigt" MinWidth="80"/>
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">

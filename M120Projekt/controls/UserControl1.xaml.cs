@@ -25,8 +25,8 @@ namespace M120Projekt.controls
         public enum Modes { Create, Read, Update };
         private Modes mode = Modes.Create;
         private Data.Todos todo;
-        Todo_Listview ListView;
-        Main_Window Container;
+        readonly Todo_Listview ListView;
+        private readonly Main_Window Container;
 
         public UserControl1(Modes mode, Data.Todos todo, Todo_Listview _Listview, Main_Window _Conainter)
         {
@@ -72,11 +72,11 @@ namespace M120Projekt.controls
 
                 if (mode == Modes.Create)
                 {
-                    labelTitle.Content = "Todo Erstellen";
+                    labelTitle.Content = "Todo erstellen";
                 }
                 else if (mode == Modes.Update)
                 {
-                    labelTitle.Content = "Todo Berarbeiten";
+                    labelTitle.Content = "Todo bearbeiten";
                 }
             }
 
@@ -186,7 +186,7 @@ namespace M120Projekt.controls
         {
             if (mode != Modes.Read)
             {
-                const string message = "Sie haben ungespeicherte Änderungen sind sie sicher das sie Zurück wollen?";
+                const string message = "Sie haben ungespeicherte Änderungen. Sind Sie sicher das Sie zurück wollen?";
                 const string caption = "Nicht gespeicherte Änderungen";
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == System.Windows.Forms.DialogResult.Yes)

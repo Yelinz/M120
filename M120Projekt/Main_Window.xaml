@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
         mc:Ignorable="d"
-        Title="Todos" MinWidth="500" MinHeight="500">
+        Title="Todos" MinWidth="800" MinHeight="500" Height="500" Width="0">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer x:Name="View"></ScrollViewer>
+        <ScrollViewer x:Name="View" Grid.IsSharedSizeScope="True" CanContentScroll="True"></ScrollViewer>
     </Grid>
 </Window>

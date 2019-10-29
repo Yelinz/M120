@@ -16,19 +16,30 @@
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*" MinHeight="80"/>
             <RowDefinition Height="0.7*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <DatePicker x:Name="deadline" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Margin="10,0,0,0" Width="250" FontSize="16"/>
-        <CheckBox x:Name="done" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="5" VerticalAlignment="Center" FontSize="16"/>
+        <Label x:Name="labelTitle" Content="Todo" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
         <Label Content="Beschreibung" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="1" FontSize="16"/>
-        <TextBox x:Name="description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Grid.Row="1" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" MinHeight="60"/>
+        <TextBox x:Name="description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" Grid.Row="1" FontSize="16" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" MinHeight="60" MaxHeight="500"/>
+        <Label Content="Ablaufdatum" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="2" FontSize="16"/>
+        <DatePicker x:Name="deadline" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Margin="10,0,0,0" Width="250" FontSize="16"/>
+        <Label Content="Priotität" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="3" FontSize="16"/>
+        <ComboBox x:Name="priority" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="250" SelectedIndex="0" FontSize="16">
+            <ComboBoxItem x:Name="priorityPlaceholder" Content="Priorität auswählen" IsSelected="True" IsEnabled="False"/>
+            <ComboBoxItem Content="Hoch"/>
+            <ComboBoxItem Content="Mittel"/>
+            <ComboBoxItem Content="Tief"/>
+        </ComboBox>
+        <Label Content="Farbe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Center" FontSize="16"/>
         <RadioButton x:Name="radioRed" Content="Rot" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Top" GroupName="colours" FontSize="16"/>
         <RadioButton x:Name="radioGreen" Content="Grün" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Center" GroupName="colours" FontSize="16"/>
         <RadioButton x:Name="radioBlue" Content="Blau" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Bottom" GroupName="colours" RenderTransformOrigin="0.436,0.972" FontSize="16"/>
-        <Label Content="Farbe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Center" FontSize="16"/>
+        <Label Content="Erledigt" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="5" FontSize="16"/>
+        <CheckBox x:Name="done" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="5" VerticalAlignment="Center" FontSize="16"/>
+        <Label x:Name="messageLabel" HorizontalAlignment="Left" Margin="0" Grid.Row="6" VerticalAlignment="Center" Grid.Column="1"/>
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button x:Name="buttonSave" Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,10,0" Grid.Row="6" VerticalAlignment="Center" Height="30" RenderTransformOrigin="1.384,0.554" FontSize="16" Click="ButtonSave_Click">
                 <StackPanel Orientation="Horizontal">
@@ -55,16 +66,5 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <ComboBox x:Name="priority" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="250" SelectedIndex="0" FontSize="16">
-            <ComboBoxItem x:Name="priorityPlaceholder" Content="Priorität auswählen" IsSelected="True" IsEnabled="False"/>
-            <ComboBoxItem Content="Hoch"/>
-            <ComboBoxItem Content="Mittel"/>
-            <ComboBoxItem Content="Tief"/>
-        </ComboBox>
-        <Label Content="Ablaufdatum" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="2" FontSize="16"/>
-        <Label Content="Priotität" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="3" FontSize="16"/>
-        <Label Content="Erledigt" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Grid.Row="5" FontSize="16"/>
-        <Label x:Name="labelTitle" Content="Todo" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
-        <Label x:Name="messageLabel" HorizontalAlignment="Left" Margin="0" Grid.Row="6" VerticalAlignment="Center" Grid.Column="1"/>
     </Grid>
 </UserControl>

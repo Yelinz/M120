@@ -51,6 +51,11 @@ namespace M120Projekt
             Data.Todos.ReadId(2).Delete();
             Debug.Print("Artikel mit Id 2 gelöscht");
         }
+
+        public static void TodoDrop()
+        {
+            
+        }
         #endregion
     }
 }
